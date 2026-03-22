@@ -1,0 +1,17 @@
+export const TH = (dk) => ({
+  bg:  dk ? "#0b1a0e" : "#f0f7f0",
+  sf:  dk ? "#122016" : "#fff",
+  sa:  dk ? "#0e1a11" : "#f4faf4",
+  br:  dk ? "#1e3524" : "#cce5cc",
+  tx:  dk ? "#e2f0e4" : "#1a2e1c",
+  sub: dk ? "#6daa72" : "#3d6b42",
+  mt:  dk ? "#4a7a50" : "#7a9a7e",
+  ac:  "#1d8a3c",
+  al:  dk ? "#1d8a3c22" : "#1d8a3c10",
+  as:  dk ? "#1d8a3c33" : "#1d8a3c18",
+  gd:  "#b45309",
+  gl:  "#b4530910",
+  dg:  "#dc2626",
+  dl:  "#dc262610",
+  sh:  dk ? "0 2px 16px rgba(0,0,0,0.4)" : "0 2px 16px rgba(0,60,20,0.06)",
+});
