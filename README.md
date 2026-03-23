@@ -2,7 +2,7 @@
 
 AI-powered agricultural platform for Indian farmers with multi-language support (English, Telugu, Hindi).
 
-link: https://agri-sync-app.vercel.app/  
+Link: https://agri-sync-app.vercel.app/  
 
 ## Quick Start
 
