@@ -55,6 +55,36 @@ export default function Dashboard({ th, L, user, farm, WT, crops, offline, sub, 
             </div>
           ))}
         </div>
+                <div style={{ 
+          display:"grid",
+          gridTemplateColumns:"1fr 1fr",
+          gap:10,
+          marginTop:12
+        }}>
+          {[
+            ["Feels Like","32°C"],
+            ["Humidity","65%"],
+            ["Wind","12 km/h"],
+            ["UV Index","6 (Moderate)"]
+          ].map(([k,v]) => (
+            <div key={k} style={{
+              background:th.sa,
+              padding:10,
+              borderRadius:10,
+              border:`1px solid ${th.br}`
+            }}>
+              <div style={{ fontSize:12,color:th.mt }}>{k}</div>
+              <div style={{ fontWeight:700,color:th.tx }}>{v}</div>
+            </div>
+          ))}
+          </div>
+                <div style={{
+          marginTop:10,
+          fontSize:13,
+          color:th.mt
+        }}>
+          🌅 Sunrise: 6:12 AM &nbsp; | &nbsp; 🌇 Sunset: 6:28 PM
+        </div>
         <button onClick={() => { setEf({ ...farm }); setGpsErr(""); setProfOpen(true); }} style={{ width:"100%",marginTop:12,padding:"8px",background:"transparent",border:`1px solid ${th.ac}40`,borderRadius:8,color:th.ac,fontSize:13,fontWeight:600,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:6 }}>
           <I n="nav" size={13} color={th.ac} /> Update location for accurate forecast
         </button>
