@@ -36,18 +36,109 @@ export default function Hub({ th, L, user, cart, setCart, notify }) {
           { name:"AI Drone",    price:"₹30,000", rent:"₹300/day", desc:"GPS precision, 10 ac/hr",     c:"#5b21b6" },
           { name:"Auto Sprayer",price:"₹10000",   rent:"₹100/day", desc:"500L boom, remote control", c:th.ac },
         ].map(item => (
-          <Card th={th} key={item.name} style={{ marginBottom:0 }}>
-            <div style={{ width:46,height:46,borderRadius:13,background:item.c+"18",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:11 }}>
+          // <Card th={th} key={item.name} style={{ marginBottom:0 }}>
+          //   <div style={{ width:46,height:46,borderRadius:13,background:item.c+"18",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:11 }}>
+          //     <I n={item.name==="AI Drone"?"cpu":"zap"} size={24} color={item.c} />
+          //   </div>
+          //   <div style={{ fontWeight:700,fontSize:15,color:th.tx,marginBottom:2 }}>{item.name}</div>
+          //   <div style={{ fontSize:18,fontWeight:700,color:th.gd,marginBottom:2 }}>{item.price}</div>
+          //   <div style={{ fontSize:13,color:th.mt,marginBottom:10 }}>Rent: {item.rent} · {item.desc}</div>
+          //   <div style={{ display:"flex",gap:6 }}>
+          //     <Btn onClick={() => { setCart(c => [...c, item.name]); notify(`${item.name} added`); }} style={{ flex:1,padding:"8px 0",fontSize:13 }}>Buy</Btn>
+          //     <Btn outline onClick={() => { setBkm({ type:"rent",item }); setBDone(false); }} style={{ flex:1,padding:"8px 0",fontSize:13 }}>Rent</Btn>
+          //   </div>
+          // </Card>
+                  <Card th={th} key={item.name} style={{ 
+          marginBottom:0,
+          borderRadius:16,
+          padding:16,
+          transition:"all 0.2s ease",
+          cursor:"pointer"
+        }}>
+          <div style={{ 
+            display:"flex",
+            justifyContent:"space-between",
+            alignItems:"center",
+            marginBottom:12
+          }}>
+            <div style={{ 
+              width:48,height:48,
+              borderRadius:14,
+              background:item.c+"18",
+              display:"flex",
+              alignItems:"center",
+              justifyContent:"center"
+            }}>
               <I n={item.name==="AI Drone"?"cpu":"zap"} size={24} color={item.c} />
             </div>
-            <div style={{ fontWeight:700,fontSize:15,color:th.tx,marginBottom:2 }}>{item.name}</div>
-            <div style={{ fontSize:18,fontWeight:700,color:th.gd,marginBottom:2 }}>{item.price}</div>
-            <div style={{ fontSize:13,color:th.mt,marginBottom:10 }}>Rent: {item.rent} · {item.desc}</div>
-            <div style={{ display:"flex",gap:6 }}>
-              <Btn onClick={() => { setCart(c => [...c, item.name]); notify(`${item.name} added`); }} style={{ flex:1,padding:"8px 0",fontSize:13 }}>Buy</Btn>
-              <Btn outline onClick={() => { setBkm({ type:"rent",item }); setBDone(false); }} style={{ flex:1,padding:"8px 0",fontSize:13 }}>Rent</Btn>
+
+            <div style={{
+              background:"#16a34a15",
+              color:"#16a34a",
+              padding:"4px 8px",
+              borderRadius:8,
+              fontSize:12,
+              fontWeight:700
+            }}>
+              SAVE
             </div>
-          </Card>
+          </div>
+
+          <div style={{ fontWeight:700,fontSize:16,color:th.tx,marginBottom:4 }}>
+            {item.name}
+          </div>
+
+          {/* PRICE SECTION */}
+          <div style={{ marginBottom:6 }}>
+            <span style={{
+              textDecoration:"line-through",
+              color:"#888",
+              fontSize:13,
+              marginRight:6
+            }}>
+              {item.name==="AI Drone" ? "₹1,50,000" : "₹20,000"}
+            </span>
+
+            <span style={{
+              fontSize:20,
+              fontWeight:800,
+              color:th.gd
+            }}>
+              {item.price}
+            </span>
+          </div>
+
+          <div style={{ fontSize:13,color:th.mt,marginBottom:12 }}>
+            Rent: <strong>{item.rent}</strong> · {item.desc}
+          </div>
+
+          <div style={{ display:"flex",gap:8 }}>
+            <Btn 
+              onClick={() => { setCart(c => [...c, item.name]); notify(`${item.name} added`); }} 
+              style={{ 
+                flex:1,
+                padding:"10px 0",
+                fontSize:14,
+                borderRadius:10
+              }}
+            >
+              Buy
+            </Btn>
+
+            <Btn 
+              outline 
+              onClick={() => { setBkm({ type:"rent",item }); setBDone(false); }} 
+              style={{ 
+                flex:1,
+                padding:"10px 0",
+                fontSize:14,
+                borderRadius:10
+              }}
+            >
+              Rent
+            </Btn>
+          </div>
+        </Card>
         ))}
       </div>
 
@@ -58,7 +149,25 @@ export default function Hub({ th, L, user, cart, setCart, notify }) {
         </div>
         <div style={{ flex:1 }}>
           <div style={{ fontWeight:700,fontSize:16,color:th.tx }}>Farm Evaluation</div>
-          <div style={{ fontSize:18,fontWeight:700,color:th.gd }}>₹5000</div>
+          {/* <div style={{ fontSize:18,fontWeight:700,color:th.gd }}>₹5000</div> */}
+          <div style={{ marginBottom:6 }}>
+            <span style={{
+              textDecoration:"line-through",
+              color:"#888",
+              fontSize:13,
+              marginRight:6
+            }}>
+              ₹25,000
+            </span>
+
+            <span style={{
+              fontSize:20,
+              fontWeight:800,
+              color:th.gd
+            }}>
+              ₹4,000
+            </span>
+          </div>
           <div style={{ fontSize:14,color:th.mt }}>AI + agronomist · 2-day · Full report</div>
         </div>
         <Btn onClick={() => { setBkm({ type:"evaluation",item:{ name:"Farm Evaluation" } }); setBDone(false); }}>Book</Btn>
