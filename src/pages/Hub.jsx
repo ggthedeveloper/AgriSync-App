@@ -33,8 +33,8 @@ export default function Hub({ th, L, user, cart, setCart, notify }) {
       {/* Hardware cards */}
       <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:12 }}>
         {[
-          { name:"AI Drone",    price:"₹1,50,000", rent:"₹8,000/day", desc:"GPS precision, 10 ac/hr",     c:"#5b21b6" },
-          { name:"Auto Sprayer",price:"₹20,000",   rent:"₹1,200/day", desc:"500L boom, remote control", c:th.ac },
+          { name:"AI Drone",    price:"₹30,000", rent:"₹300/day", desc:"GPS precision, 10 ac/hr",     c:"#5b21b6" },
+          { name:"Auto Sprayer",price:"₹10000",   rent:"₹100/day", desc:"500L boom, remote control", c:th.ac },
         ].map(item => (
           <Card th={th} key={item.name} style={{ marginBottom:0 }}>
             <div style={{ width:46,height:46,borderRadius:13,background:item.c+"18",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:11 }}>
@@ -58,7 +58,7 @@ export default function Hub({ th, L, user, cart, setCart, notify }) {
         </div>
         <div style={{ flex:1 }}>
           <div style={{ fontWeight:700,fontSize:16,color:th.tx }}>Farm Evaluation</div>
-          <div style={{ fontSize:18,fontWeight:700,color:th.gd }}>₹25,000</div>
+          <div style={{ fontSize:18,fontWeight:700,color:th.gd }}>₹5000</div>
           <div style={{ fontSize:14,color:th.mt }}>AI + agronomist · 2-day · Full report</div>
         </div>
         <Btn onClick={() => { setBkm({ type:"evaluation",item:{ name:"Farm Evaluation" } }); setBDone(false); }}>Book</Btn>

@@ -1,7 +1,7 @@
 export const PLANS = {
   free:    { price: 0,     color: "#64748b", features: ["Basic weather", "MSP prices", "Community", "1 diagnosis/month"] },
-  basic:   { price: 2000,  color: "#1d8a3c", features: ["Full weather", "Soil monitoring", "Analytics", "5 diagnoses/month", "Market prices"] },
-  premium: { price: 10000, color: "#7c3aed", features: ["All Basic", "AI pest control", "Predictive yield", "Unlimited diagnosis", "Priority support"] },
+  basic:   { price: 500,  color: "#1d8a3c", features: ["Full weather", "Soil monitoring", "Analytics", "5 diagnoses/month", "Market prices"] },
+  premium: { price: 1000, color: "#7c3aed", features: ["All Basic", "AI pest control", "Predictive yield", "Unlimited diagnosis", "Priority support"] },
 };
 export const PORDER = ["free", "basic", "premium"];
 export const PAGEPLANS = {
