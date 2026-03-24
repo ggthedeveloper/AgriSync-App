@@ -12,7 +12,7 @@ export default function PayModal({ planKey, th, L, onSuccess, onClose }) {
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
 
-  const pay = () => { setBusy(true); setTimeout(() => { setBusy(false); setDone(true); }, 2000); };
+  const pay = () => { setBusy(true); setTimeout(() => { setBusy(false); setDone(true); }, 500); };
 
   if (done) return (
     <Modal title={L.success} onClose={() => { onSuccess(); onClose(); }} th={th}>
