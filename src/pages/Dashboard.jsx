@@ -16,6 +16,22 @@ export default function Dashboard({ th, L, user, farm, WT, crops, offline, sub, 
         <p style={{ fontSize:14,color:th.sub,margin:0 }}>{farm.name} · {farm.loc} · {farm.acres} acres</p>
       </div>
 
+
+        {/* Alerts */}
+      <Card th={th}>
+        <SL th={th}>{L.alerts}</SL>
+        {[
+          { msg: WT.r>40 ? `Heavy rain (${WT.r}%) — delay spraying` : `Rain ${WT.r}% — check irrigation`, c:"#2563eb" },
+          { msg: WT.h>70 ? `High humidity (${WT.h}%) — fungal risk` : `Humidity OK (${WT.h}%)`,          c: WT.h>70 ? "#ea580c" : "#16a34a" },
+          { msg: "Fertilization recommended this week based on soil NPK", c:"#16a34a" },
+        ].map(({ msg, c }, i) => (
+          <div key={i} style={{ display:"flex",gap:9,alignItems:"flex-start",marginBottom:i<2?9:0,padding:"9px 11px",background:c+"12",borderRadius:9,borderLeft:`3px solid ${c}` }}>
+            <I n="alert" size={14} color={c} /><span style={{ fontSize:14,color:th.tx,lineHeight:1.5 }}>{msg}</span>
+          </div>
+        ))}
+      </Card>
+
+
       {/* Weather */}
       <Card th={th}>
         <SL th={th}>{L.weather} — {farm.loc}</SL>
@@ -81,19 +97,7 @@ export default function Dashboard({ th, L, user, farm, WT, crops, offline, sub, 
         ))}
       </Card>
 
-      {/* Alerts */}
-      <Card th={th}>
-        <SL th={th}>{L.alerts}</SL>
-        {[
-          { msg: WT.r>40 ? `Heavy rain (${WT.r}%) — delay spraying` : `Rain ${WT.r}% — check irrigation`, c:"#2563eb" },
-          { msg: WT.h>70 ? `High humidity (${WT.h}%) — fungal risk` : `Humidity OK (${WT.h}%)`,          c: WT.h>70 ? "#ea580c" : "#16a34a" },
-          { msg: "Fertilization recommended this week based on soil NPK", c:"#16a34a" },
-        ].map(({ msg, c }, i) => (
-          <div key={i} style={{ display:"flex",gap:9,alignItems:"flex-start",marginBottom:i<2?9:0,padding:"9px 11px",background:c+"12",borderRadius:9,borderLeft:`3px solid ${c}` }}>
-            <I n="alert" size={14} color={c} /><span style={{ fontSize:14,color:th.tx,lineHeight:1.5 }}>{msg}</span>
-          </div>
-        ))}
-      </Card>
+    
 
       {/* Subscription */}
       <Card th={th}>
