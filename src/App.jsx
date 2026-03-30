@@ -8,6 +8,7 @@ import { I } from "./components/Icons";
 import { Modal, Btn, Inp, Sel, FL, Bdg, SL } from "./components/UI";
 import PayModal from "./components/PayModal";
 import UpGate from "./components/UpgradeGate";
+import Chatbot from "./components/Chatbot";
 
 import Dashboard  from "./pages/Dashboard";
 import Diagnose   from "./pages/Diagnose";
@@ -16,6 +17,8 @@ import Market     from "./pages/Market";
 import Community  from "./pages/Community";
 import Health     from "./pages/Health";
 import Hub        from "./pages/Hub";
+
+
 
 export default function App({ user, onLogout, initLang }) {
   const [lang, setLang]   = useState(() => S.get("lang", initLang || "en"));
@@ -349,6 +352,8 @@ export default function App({ user, onLogout, initLang }) {
 
       {/* ── Farm profile modal ── */}
       {profOpen && ef && <FarmModal />}
+      {/* 🤖 Chatbot */}
+      <Chatbot th={th} WT={WT} crops={crops} />
     </div>
   );
 }
