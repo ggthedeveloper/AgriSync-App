@@ -11,11 +11,11 @@ export default function Chatbot({ th, WT, crops }) {
   msg = msg.toLowerCase();
 
   if (msg.includes("weather") || msg.includes("rain")) {
-    return `Current weather is ${WT.temp}°C with ${WT.cond}.`;
+    return `Current weather is ${WT?.t || "N/A"}°C with ${WT?.c || "clear sky"}.`;
   }
 
   if (msg.includes("crop")) {
-    return `Recommended crops: ${crops.join(", ")}`;
+    return `Recommended crops: ${crops.map(c => c.name).join(", ")}`;
   }
 
   if (msg.includes("irrigation")) {
